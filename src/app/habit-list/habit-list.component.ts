@@ -44,3 +44,11 @@ export class HabitListComponent {
       title: '',
     });
   }
+  onSubmit(newHabit) {
+    const id = this.habits.length + 1;
+    newHabit.id = id;
+    this.habits.push(newHabit);
+    this.habitForm.reset();
+  }
+}
+
