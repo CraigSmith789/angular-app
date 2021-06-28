@@ -5,6 +5,10 @@ import { FormBuilder } from '@angular/forms';
   selector: 'app-habit-list',
   template: `
     <h2>Habits</h2>
+    <form [formGroup]="habitForm" (ngSubmit)="onSubmit(habitForm.value)">
+      <input type="text" placeholder="Add habit" formControlName="title" />
+      <button type="submit">Add</button>
+    </form>
     <ul>
       <app-habit-item
         *ngFor="let habit of habits"
@@ -12,7 +16,7 @@ import { FormBuilder } from '@angular/forms';
       ></app-habit-item>
     </ul>
   `,
-  styles: []
+  styles: [],
 })
 export class HabitListComponent implements OnInit {
   habits = [
